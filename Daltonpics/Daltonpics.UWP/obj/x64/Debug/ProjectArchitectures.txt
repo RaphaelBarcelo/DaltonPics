@@ -1,0 +1,1 @@
+D:\Users\barce\Documents\Projects\VisualStudio\Xamarin\Daltonpics\Daltonpics\Daltonpics.UWP\Daltonpics.UWP.csproj;x64

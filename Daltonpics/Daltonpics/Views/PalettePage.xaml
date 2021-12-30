@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:skiaforms="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+             x:Class="Daltonpics.Views.PalettePage"
+             xmlns:vm="clr-namespace:Daltonpics.ViewModels"
+             Title="{Binding Title}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Accent">#96d1ff</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.BindingContext>
+        <vm:PaletteViewModel x:Name="viewModel"/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <Grid>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10"/>
+                <!-- Empty row for left margin -->
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="10"/>
+                <!-- Empty row for right margin -->
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <!-- ofset to first display line and start of color wheel -->
+                <RowDefinition Height="60"/>
+                <!-- Row for Color Wheel -->
+                <RowDefinition Height="20"/>
+                <!-- Row for RGB value -->
+                <RowDefinition Height="20"/>
+                <!-- Empty row - separator -->
+                <RowDefinition Height="20"/>
+                <!-- Row for  RGB value -->
+                <RowDefinition Height="20"/>
+                <!-- Empty row - separator -->
+                <RowDefinition Height="20"/>
+                <!-- Row for Hue Saturation Lightness -->
+                <RowDefinition Height="20"/>
+                <!-- Empty row - separator -->
+                <RowDefinition Height="20"/>
+                <!-- Empty row - separator -->
+                <RowDefinition Height="30"/>
+                <!-- Row for color name -->
+                <RowDefinition Height="115"/>
+                <!-- Row for color name -->
+                <RowDefinition Height="*"/>
+                <!-- Empty line .Separator to fill empty space on the screen -->
+                <RowDefinition Height="80"/>
+                <!-- Complementary color Name Value and color rectangle -->
+                <RowDefinition Height="20"/>
+                <!-- Complementary color Switch-->
+                <RowDefinition Height="30"/>
+                <!-- Complementary color Switch-->
+                <RowDefinition Height="2"/>
+                <!-- Row for separation line -->
+            </Grid.RowDefinitions>
+
+            <!--
+            <Image x:Name="colorWheel"   Grid.Row="1" Grid.RowSpan="10" Grid.Column="0" Grid.ColumnSpan="3"
+                       Background="transparent"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Source="{Binding PaletteImage}">
+                <Image.Effects>
+                    <tt:TouchEffect Capture="True"
+                            TouchAction="OnTouchEffectAction" />
+                </Image.Effects>
+            </Image>
+            -->
+
+
+
+            <!-- RGB Value-->
+            <StackLayout Orientation="Horizontal" Grid.Row="5" Grid.Column="1" HorizontalOptions="Center">
+                <Label Text="R:"/>
+                <Label Text="{Binding Red, StringFormat='{0:D3}'}" TextColor="White" Background="Red" FontAttributes="Bold" Padding="3,0,3,0"/>
+                <Label Text="V:"/>
+                <Label Text="{Binding Green, StringFormat='{0:D3}'}" TextColor="White" Background="Green"  FontAttributes="Bold" Padding="3,0,3,0"/>
+                <Label Text="B:" FontAttributes="Bold"/>
+                <Label Text="{Binding Blue, StringFormat='{0:D3}'}" TextColor="White" Background="Blue" FontAttributes="Bold" Padding="3,0,3,0"/>
+            </StackLayout>
+
+
+            <!-- Color name -->
+            <Label Grid.Row="6" Grid.RowSpan="2" Grid.Column="1"  Text="{Binding ColorDisplayName}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="20" FontAttributes="Bold"/>
+
+
+            <!-- HTML Color value -->
+            <Label Grid.Row="8" Grid.Column="1" Text="{Binding HTMLColor}" HorizontalOptions="Center"/>
+
+            <!-- Color rectangle -->
+            <Grid  Grid.Column="1" Grid.Row="9">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Rectangle Grid.Column="1" Grid.Row="0"  RadiusX="25" RadiusY="50" Fill="{Binding HTMLBrush}" />
+            </Grid>
+
+
+
+            <!-- Picture in SkBitmapFormat -->
+            <skiaforms:SKCanvasView x:Name="skView"  Grid.Row="1" Grid.RowSpan="10" Grid.Column="0" Grid.ColumnSpan="3"
+                                    Margin="20"
+                                HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+            </skiaforms:SKCanvasView>
+
+
+
+            <!-- Complementary Colors  -->
+            <Grid Grid.Row="12" Grid.Column="1" IsVisible="{Binding UseComplementaryColor}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="3*"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <!-- Complementary Color Name -->
+                <Label Grid.Row="0" Grid.Column="0" TextColor="Gray" FontSize="14" HorizontalTextAlignment="Start" Text="{Binding LeftComplementaryColorName}" VerticalOptions="Center" HorizontalOptions="Center"/>
+                <Label Grid.Row="0" Grid.Column="1" TextColor="Gray" FontSize="14" HorizontalTextAlignment="Start" Text="{Binding ComplementaryColorDisplayName}" VerticalOptions="Center" HorizontalOptions="Center"/>
+                <Label Grid.Row="0" Grid.Column="2" TextColor="Gray" FontSize="14" HorizontalTextAlignment="Start" Text="{Binding RightComplementaryColorName}" VerticalOptions="Center" HorizontalOptions="Center"/>
+
+                <!-- Complementary value display -->
+
+                <Label Grid.Row="1" Grid.Column="0"  Text="{Binding LeftComplementaryColor}" VerticalOptions="Center" HorizontalOptions="Center"/>
+                <Label Grid.Row="1" Grid.Column="1"  Text="{Binding Complementarycolor}" VerticalOptions="Center" HorizontalOptions="Center"/>
+                <Label Grid.Row="1" Grid.Column="2"  Text="{Binding RightComplementaryColor}" VerticalOptions="Center" HorizontalOptions="Center"/>
+
+
+
+                <!-- Complementary color rectangle display -->
+
+                <Rectangle Grid.Row="2" Grid.Column="0"  RadiusX="25" RadiusY="50" Fill="{Binding LeftComplementaryBrush}" />
+                <Rectangle Grid.Row="2" Grid.Column="1"  RadiusX="25" RadiusY="50" Fill="{Binding ComplementaryBrush}" />
+                <Rectangle Grid.Row="2" Grid.Column="2"  RadiusX="25" RadiusY="50" Fill="{Binding RightComplementaryBrush}" />
+
+            </Grid>
+
+
+            <!-- Switch complementary value -->
+            <Grid Grid.Row="14" Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="50"/>
+                </Grid.ColumnDefinitions>
+
+                <Label x:Name="titreSwitch" Grid.Column="0" Text="Couleurs complémentaires" VerticalOptions="Center" TextColor="Gray" FontSize="Body"/>
+                <Switch Grid.Column="1" IsToggled="{Binding UseComplementaryColor}" OnColor="Green" ThumbColor="GreenYellow" HorizontalOptions="End" VerticalOptions="Center" Toggled="ComplementSwitchOnTogle"/>
+            </Grid>
+
+            <!-- Separation line -->
+            <Rectangle Grid.Row="15" Grid.Column="0" Grid.ColumnSpan="3" Fill="#FF292929"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

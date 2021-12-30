@@ -1,0 +1,11 @@
+D:\Users\barce\Documents\Projects\VisualStudio\Xamarin\Daltonpics\Daltonpics\Daltonpics.UWP\obj\x86\Debug\Daltonpics.UWP.csproj.AssemblyReference.cache
+D:\Users\barce\Documents\Projects\VisualStudio\Xamarin\Daltonpics\Daltonpics\Daltonpics.UWP\obj\x86\Debug\App.g.i.cs
+D:\Users\barce\Documents\Projects\VisualStudio\Xamarin\Daltonpics\Daltonpics\Daltonpics.UWP\obj\x86\Debug\App.g.cs
+D:\Users\barce\Documents\Projects\VisualStudio\Xamarin\Daltonpics\Daltonpics\Daltonpics.UWP\obj\x86\Debug\MainPage.g.i.cs
+D:\Users\barce\Documents\Projects\VisualStudio\Xamarin\Daltonpics\Daltonpics\Daltonpics.UWP\obj\x86\Debug\MainPage.g.cs
+D:\Users\barce\Documents\Projects\VisualStudio\Xamarin\Daltonpics\Daltonpics\Daltonpics.UWP\obj\x86\Debug\XamlTypeInfo.g.cs
+D:\Users\barce\Documents\Projects\VisualStudio\Xamarin\Daltonpics\Daltonpics\Daltonpics.UWP\obj\x86\Debug\App.xaml
+D:\Users\barce\Documents\Projects\VisualStudio\Xamarin\Daltonpics\Daltonpics\Daltonpics.UWP\obj\x86\Debug\MainPage.xaml
+D:\Users\barce\Documents\Projects\VisualStudio\Xamarin\Daltonpics\Daltonpics\Daltonpics.UWP\obj\x86\Debug\App.xbf
+D:\Users\barce\Documents\Projects\VisualStudio\Xamarin\Daltonpics\Daltonpics\Daltonpics.UWP\obj\x86\Debug\MainPage.xbf
+D:\Users\barce\Documents\Projects\VisualStudio\Xamarin\Daltonpics\Daltonpics\Daltonpics.UWP\obj\x86\Debug\XamlSaveStateFile.xml

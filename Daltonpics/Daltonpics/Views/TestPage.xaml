@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Daltonpics.Views.TestPage"
+             xmlns:vm="clr-namespace:Daltonpics.ViewModels">
+
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Accent">#96d1ff</Color>
+        </ResourceDictionary>
+
+        <!-- Radio button style -->
+        <Style TargetType="RadioButton">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CheckedStates">
+                        <VisualState x:Name="Checked">
+                            <VisualState.Setters>
+                                <Setter Property="TextColor"
+                                    Value="Black" />
+                                <Setter Property="Opacity"
+                                    Value="1" />
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="Unchecked">
+                            <VisualState.Setters>
+                                <Setter Property="TextColor"
+                                    Value="Gray" />
+                                <Setter Property="Opacity"
+                                    Value="0.5" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+
+    </ContentPage.Resources>
+
+    <ContentPage.BindingContext>
+        <vm:TestViewModel x:Name="viewModel"/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <!-- Titre -->
+                <RowDefinition Height="*"/>
+                <!-- Image -->
+                <RowDefinition Height="215"/>
+                <!-- Progess bar Radio buttons (answers) and buttons   -->
+            </Grid.RowDefinitions>
+
+            <StackLayout Grid.Row="0" BackgroundColor="Orange" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+                <Label Text="Test d'Ishihara" FontSize="36" VerticalOptions="Center" HorizontalOptions="Center" FontAttributes="Bold"
+                       Margin="0,4,0,0" TextColor="AntiqueWhite"/>
+            </StackLayout>
+
+            <Image Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Source="{Binding TestImage}" Margin="30"/>
+
+
+
+            <Grid Grid.Row="2" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="2"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="2"/>
+                </Grid.RowDefinitions>
+
+
+                <StackLayout  RadioButtonGroup.GroupName="userAnser" RadioButtonGroup.SelectedValue="{Binding Answer}"
+                              Grid.Row="0" IsVisible="{Binding TestInProgress}" >
+                    <Label Text="Quel  chiffre voyez-vous ?" FontSize="20" FontAttributes="Bold" Margin="10,0,0,0"/>
+                    <Grid  Margin="10,0,10,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+
+
+                        <RadioButton Grid.Column="0" Grid.Row="0" Content="{Binding Option1}" Value="{Binding Option1}"/>
+                        <RadioButton Grid.Column="0" Grid.Row="1" Content="{Binding Option2}" Value="{Binding Option2}"/>
+
+                        <RadioButton  Grid.Column="1" Grid.Row="0" Content="{Binding Option3}" Value="{Binding Option3}"/>
+                        <RadioButton  Grid.Column="1" Grid.Row="1" Content="{Binding Option4}" Value="{Binding Option4}"/>
+
+                        <RadioButton   Grid.Column="2" Grid.Row="0" Grid.RowSpan="2" HorizontalOptions="Center" Content="{Binding DontKnow}" Value="{Binding DontKnow}"
+                        IsChecked="true"/>
+                    </Grid>
+
+                </StackLayout>
+
+
+
+
+
+                <Rectangle   Grid.Row="2" Fill="Orange"/>
+
+                <Grid Grid.Row="3" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button Grid.Row="0" Grid.Column="0"  Text="{Binding StartButtonText}" Clicked="Btn_Start_Cliked" 
+                            HorizontalOptions="Fill" Margin="10,0,10,0" CornerRadius="15"/>
+                    <Button Grid.Row="0" Grid.Column="1" Text="Suivant" Clicked="Btn_Next_Cliked" 
+                        HorizontalOptions="Fill" Margin="10,0,10,0"
+                        IsVisible="{Binding TestInProgress}" CornerRadius="15"/>
+
+                </Grid>
+
+                <Grid Grid.Row="1" IsVisible="{Binding TestInProgress}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="60"/>
+                    </Grid.ColumnDefinitions>
+
+                    <ProgressBar Grid.Column="0" Progress="{Binding Progression}" ScaleY="2" Margin="10,0,0,0" ProgressColor="Green" HeightRequest="15" VerticalOptions="Center" />
+                    <StackLayout Grid.Column="1" Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
+                        <Label Text="{Binding TestNum}"/>
+                        <Label Text="/"/>
+                        <Label Text="{Binding TotalDisks}"/>
+                    </StackLayout>
+                </Grid>
+
+                <Rectangle   Grid.Row="4" Fill="Orange"/>
+            </Grid>
+
+
+        </Grid>
+    </ContentPage.Content>
+
+</ContentPage>

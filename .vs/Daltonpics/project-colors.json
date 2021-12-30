@@ -1,0 +1,26 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "b9d1d6ca-9d99-48b0-b087-2f08ca07bcd6": {
+      "ProjectGuid": "b9d1d6ca-9d99-48b0-b087-2f08ca07bcd6",
+      "DisplayName": "Daltonpics",
+      "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    },
+    "10dfacff-2ff9-4e14-aa08-cbba57fb9bca": {
+      "ProjectGuid": "10dfacff-2ff9-4e14-aa08-cbba57fb9bca",
+      "DisplayName": "Daltonpics.Android",
+      "ColorIndex": 1
+    },
+    "ba2d5756-e2b3-4b44-bc90-fb514214d68d": {
+      "ProjectGuid": "ba2d5756-e2b3-4b44-bc90-fb514214d68d",
+      "DisplayName": "Daltonpics.UWP",
+      "ColorIndex": 2
+    }
+  },
+  "NextColorIndex": 3
+}

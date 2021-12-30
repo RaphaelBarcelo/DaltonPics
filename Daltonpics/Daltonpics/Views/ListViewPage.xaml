@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Daltonpics.Views.ListViewPage"
+             xmlns:vm="clr-namespace:Daltonpics.ViewModels">
+
+
+    <ContentPage.BindingContext>
+        <vm:ListViewViewModel x:Name="viewModel"/>
+    </ContentPage.BindingContext>
+
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="2"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <!-- Headers for list columns -->
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Image Grid.Column="0" Grid.Row="0" Source="daltonpics_logo.png"/>
+            <Label Grid.Column="1" Grid.Row="0" Text="Votre réponse" 
+                               HorizontalOptions="Center" VerticalOptions="Center" 
+                    TextColor="Black" FontAttributes="Bold"/>
+            <Label  Grid.Column="2" Grid.Row="0" Text="Réponse correcte" 
+                                HorizontalOptions="Center" VerticalOptions="Center" 
+                    TextColor="Black" FontAttributes="Bold"/>
+        </Grid>
+
+
+        <Rectangle Grid.Row="1"  Fill="Gray"/>
+
+
+        <!-- Source list for items -->
+        <ListView Grid.Row="2"
+            HasUnevenRows="True"  
+            ItemsSource="{Binding IshiharaTestItemList}"
+            ItemTapped="Handle_ItemTapped"
+            CachingStrategy="RecycleElement">
+
+            <!--Custom View Cells-->
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell Height="80">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="80"/>
+                            </Grid.RowDefinitions>
+
+                            <Polygon Grid.Row="0" Grid.Column="1" 
+                                 Points="0,38 14,22 0,6 8,4 17,20 28,5 30,4 19,22 30,40 28,39 17,26 8,40" 
+                                 Stroke="Red" Fill="Red"  Margin="10,0,10,0" HorizontalOptions="Center" 
+                                 IsVisible="{Binding WrongAnswer}"
+                                 VerticalOptions="Center">
+
+                            </Polygon>
+
+                            <Image Grid.Column="0" Grid.Row="0" Source="{Binding TestDisk}"/>
+                            <Label Grid.Column="2" Grid.Row="0" Text="{Binding CorrectAnswer}" 
+                               HorizontalOptions="Center" VerticalOptions="Center" 
+                                   TextColor="Black"/>
+                            <Label  Grid.Column="1" Grid.Row="0" Text="{Binding UserAnswer}" 
+                                HorizontalOptions="Center" VerticalOptions="Center"
+                                    TextColor="Black"/>
+
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+
+        <!-- Return button -->
+        <Button Grid.Row="3" Text="Retour" CornerRadius="5" Clicked="BtnReturnClicked" Margin="5"/>
+
+        <!-- BackGround for semi opacity when displaying a selected disk -->
+        <!-- Visible only when DisplayPopup is true  -->
+        <Grid Grid.Row="0" Grid.RowSpan="4" Background="#58000000" Opacity="0.5"  IsVisible="{Binding DisplayPopup}" />
+
+        <!-- Image to display   -->
+        <!-- Visible only when DisplayPopup is true  -->
+        <ImageButton  Grid.Row="0" Grid.RowSpan="4"  Source="{Binding ActiveTest.TestDisk}"   
+                      IsVisible="{Binding DisplayPopup}"
+                     Background="Transparent"   BackgroundColor="Transparent"
+                     HorizontalOptions="Fill" VerticalOptions="Fill" Clicked="ReturnToGrid"/>
+
+
+
+    </Grid>
+</ContentPage>

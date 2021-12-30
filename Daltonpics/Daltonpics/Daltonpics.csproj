@@ -1,0 +1,123 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\camera.png" />
+    <None Remove="Images\colorWheel.png" />
+    <None Remove="Images\colorWheel2.png" />
+    <None Remove="Images\ColorWheel_2150.png" />
+    <None Remove="Images\ColorWheel_900.png" />
+    <None Remove="Images\daltonpics_logo.png" />
+    <None Remove="Images\Ishihara\ishara15.png" />
+    <None Remove="Images\Ishihara\ishihara0.png" />
+    <None Remove="Images\Ishihara\ishihara1.png" />
+    <None Remove="Images\Ishihara\ishihara10.png" />
+    <None Remove="Images\Ishihara\ishihara11.png" />
+    <None Remove="Images\Ishihara\ishihara12.png" />
+    <None Remove="Images\Ishihara\ishihara13.png" />
+    <None Remove="Images\Ishihara\ishihara14.png" />
+    <None Remove="Images\Ishihara\ishihara15.png" />
+    <None Remove="Images\Ishihara\ishihara16.png" />
+    <None Remove="Images\Ishihara\ishihara17.png" />
+    <None Remove="Images\Ishihara\ishihara18.png" />
+    <None Remove="Images\Ishihara\ishihara19.png" />
+    <None Remove="Images\Ishihara\ishihara2.png" />
+    <None Remove="Images\Ishihara\ishihara20.png" />
+    <None Remove="Images\Ishihara\ishihara21.png" />
+    <None Remove="Images\Ishihara\ishihara22.png" />
+    <None Remove="Images\Ishihara\ishihara23.png" />
+    <None Remove="Images\Ishihara\ishihara24.png" />
+    <None Remove="Images\Ishihara\ishihara25.png" />
+    <None Remove="Images\Ishihara\ishihara3.png" />
+    <None Remove="Images\Ishihara\ishihara4.png" />
+    <None Remove="Images\Ishihara\ishihara5.png" />
+    <None Remove="Images\Ishihara\ishihara6.png" />
+    <None Remove="Images\Ishihara\ishihara7.png" />
+    <None Remove="Images\Ishihara\ishihara8.png" />
+    <None Remove="Images\Ishihara\ishihara9.png" />
+    <None Remove="Images\palette_peinture.png" />
+    <None Remove="Images\test.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Images\Ishihara\ishihara0.png" />
+    <EmbeddedResource Include="Images\Ishihara\ishihara15.png" />
+    <EmbeddedResource Include="Images\Ishihara\ishihara20.png" />
+    <EmbeddedResource Include="Images\Ishihara\ishihara25.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Images\Ishihara\ishihara16.png" />
+    <EmbeddedResource Include="Images\Ishihara\ishihara17.png" />
+    <EmbeddedResource Include="Images\Ishihara\ishihara18.png" />
+    <EmbeddedResource Include="Images\Ishihara\ishihara19.png" />
+    <EmbeddedResource Include="Images\Ishihara\ishihara21.png" />
+    <EmbeddedResource Include="Images\Ishihara\ishihara22.png" />
+    <EmbeddedResource Include="Images\Ishihara\ishihara23.png" />
+    <EmbeddedResource Include="Images\Ishihara\ishihara24.png" />
+    <EmbeddedResource Include="Images\Ishihara\ishihara1.png" />
+    <EmbeddedResource Include="Images\Ishihara\ishihara10.png" />
+    <EmbeddedResource Include="Images\Ishihara\ishihara2.png" />
+    <EmbeddedResource Include="Images\Ishihara\ishihara3.png" />
+    <EmbeddedResource Include="Images\Ishihara\ishihara4.png" />
+    <EmbeddedResource Include="Images\Ishihara\ishihara5.png" />
+    <EmbeddedResource Include="Images\Ishihara\ishihara6.png" />
+    <EmbeddedResource Include="Images\Ishihara\ishihara7.png" />
+    <EmbeddedResource Include="Images\Ishihara\ishihara8.png" />
+    <EmbeddedResource Include="Images\Ishihara\ishihara9.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\Ishihara\ishara15.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Images\camera.png" />
+    <EmbeddedResource Include="Images\colorWheel.png" />
+    <EmbeddedResource Include="Images\colorWheel2.png" />
+    <EmbeddedResource Include="Images\ColorWheel_2150.png" />
+    <EmbeddedResource Include="Images\ColorWheel_900.png" />
+    <EmbeddedResource Include="Images\daltonpics_logo.png" />
+    <EmbeddedResource Include="Images\Ishihara\ishihara11.png" />
+    <EmbeddedResource Include="Images\Ishihara\ishihara12.png" />
+    <EmbeddedResource Include="Images\Ishihara\ishihara13.png" />
+    <EmbeddedResource Include="Images\Ishihara\ishihara14.png" />
+    <EmbeddedResource Include="Images\palette_peinture.png" />
+    <EmbeddedResource Include="Images\test.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SkiaSharp" Version="2.80.3" />
+    <PackageReference Include="SkiaSharp.Views.Forms" Version="2.80.3" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2291" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Drawing.Common">
+      <HintPath>C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\MonoAndroid\v1.0\Facades\System.Drawing.Common.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\PhotoPage.xaml.cs">
+      <DependentUpon>PhotoPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\ListViewPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\PalettePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\TestPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>
