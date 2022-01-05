@@ -47,19 +47,11 @@
               "target": "Package",
               "version": "[6.2.13, )"
             },
-            "Microsoft.NETCore.UniversalWindowsPlatform": {
+            "NETStandard.Library": {
               "target": "Package",
-              "version": "[6.2.13, )"
+              "version": "[2.0.3, )"
             },
             "SkiaSharp": {
-              "target": "Package",
-              "version": "[2.80.3, )"
-            },
-            "SkiaSharp": {
-              "target": "Package",
-              "version": "[2.80.3, )"
-            },
-            "SkiaSharp.Views.Forms": {
               "target": "Package",
               "version": "[2.80.3, )"
             },
@@ -70,14 +62,6 @@
             "Xamarin.Essentials": {
               "target": "Package",
               "version": "[1.7.0, )"
-            },
-            "Xamarin.Essentials": {
-              "target": "Package",
-              "version": "[1.7.0, )"
-            },
-            "Xamarin.Forms": {
-              "target": "Package",
-              "version": "[5.0.0.2291, )"
             },
             "Xamarin.Forms": {
               "target": "Package",
@@ -155,6 +139,10 @@
         "netstandard2.0": {
           "targetAlias": "netstandard2.0",
           "dependencies": {
+            "Microsoft.NETCore.UniversalWindowsPlatform": {
+              "target": "Package",
+              "version": "[6.2.13, )"
+            },
             "NETStandard.Library": {
               "suppressParent": "All",
               "target": "Package",

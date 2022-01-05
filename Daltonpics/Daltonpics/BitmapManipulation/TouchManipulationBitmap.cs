@@ -7,7 +7,9 @@ namespace Daltonpics.BitmapManipulation
 {
     class TouchManipulationBitmap
     {
-        public readonly SKBitmap bitmap;
+        // Pointer circles radius
+        private readonly float _radius1 = 26f, _radius2 = 32f, _radius3 = 38f;
+        public readonly SKBitmap bitmap; 
         private bool processingEvent = false;
         private bool manipulating = false;
         private readonly SKPaint circlePaint1, circlePaint2, circlePaint3;
@@ -17,7 +19,6 @@ namespace Daltonpics.BitmapManipulation
         public TouchManipulationBitmap(SKBitmap bitmap)
         {
             this.bitmap = bitmap;
-            SKShader shader;
             SKColor[] colors;
             Matrix = SKMatrix.CreateIdentity();
 
@@ -33,11 +34,10 @@ namespace Daltonpics.BitmapManipulation
                 new SKColor(0, 255, 255)
             };
 
-            shader = SKShader.CreateSweepGradient(
-               new SKPoint(128, 128),
-               colors,
-               null);
 
+            // The three circles to pint where the user has cliked 
+            
+            // Properties of first circle
             circlePaint1 = new SKPaint
             {
                 Color = SKColor.Parse("#FF000000"),
@@ -46,17 +46,29 @@ namespace Daltonpics.BitmapManipulation
                 IsAntialias = true
             };
 
-            circlePaint3 = new SKPaint
-            {
-                // Color = SKColor.Parse("#FFFF0000"),
-                Style = SKPaintStyle.Stroke,
-                Shader = shader,
-                StrokeWidth = 6,
-                IsAntialias = true
-            };
+            
+
+            // Properties of second circle
             circlePaint2 = new SKPaint
             {
                 Color = SKColor.Parse("#FFFFFFFF"),
+                Style = SKPaintStyle.Stroke,
+                StrokeWidth = 6,
+                IsAntialias = true
+            };
+
+
+            circlePaint3 = new SKPaint
+            {
+
+                // Color = SKColor.Parse("#FFFF0000"),
+
+                // No solid color for this one. Use a shader instead to create a gradient
+                // so that it can bee seen on any pixel color
+                Shader = SKShader.CreateSweepGradient(
+                       new SKPoint(128, 128),
+                       colors,
+                       null),
                 Style = SKPaintStyle.Stroke,
                 StrokeWidth = 6,
                 IsAntialias = true
@@ -68,6 +80,10 @@ namespace Daltonpics.BitmapManipulation
 
         public SKMatrix Matrix { set; get; }
 
+        /// <summary>
+        /// Paints the bitmap, not filter, not cursor
+        /// </summary>
+        /// <param name="canvas"></param>
         public void Paint(SKCanvas canvas)
         {
             canvas.Save();
@@ -77,23 +93,12 @@ namespace Daltonpics.BitmapManipulation
             canvas.Restore();
         }
 
-        public void Paint(SKCanvas canvas, SKRect rect, SKPoint point)
-        {
-            canvas.Save();
-            SKMatrix matrix = Matrix;
-            canvas.Concat(ref matrix);
-            canvas.DrawBitmap(bitmap, rect);
-            if (!point.IsEmpty)
-            {
-                canvas.DrawCircle(point.X, point.Y, 20, circlePaint1);
-                canvas.DrawCircle(point.X, point.Y, 26, circlePaint2);
-                canvas.DrawCircle(point.X, point.Y, 32, circlePaint3);
-            }
-            canvas.Restore();
 
-
-        }
-
+        /// <summary>
+        /// Paints th skBitmap applying a filter
+        /// </summary>
+        /// <param name="canvas"></param>
+        /// <param name="filter"></param>
         public void Paint(SKCanvas canvas, float[] filter)
         {
             canvas.Save();
@@ -108,6 +113,13 @@ namespace Daltonpics.BitmapManipulation
             canvas.Restore();
         }
 
+
+        /// <summary>
+        ///  Paint he skBitmap appling a filter and displaying the cursor if point is not empty
+        /// </summary>
+        /// <param name="canvas"></param>
+        /// <param name="filter"></param>
+        /// <param name="point"></param>
         public void Paint(SKCanvas canvas, float[] filter, SKPoint point)
         {
             canvas.Save();
@@ -122,19 +134,46 @@ namespace Daltonpics.BitmapManipulation
             canvas.Restore();
             if (!point.IsEmpty)
             {
-                canvas.DrawCircle(point.X, point.Y, 15, circlePaint1);
-                canvas.DrawCircle(point.X, point.Y, 18, circlePaint2);
-                canvas.DrawCircle(point.X, point.Y, 21, circlePaint3);
+                canvas.DrawCircle(point.X, point.Y, _radius1, circlePaint1);
+                canvas.DrawCircle(point.X, point.Y, _radius2, circlePaint2);
+                canvas.DrawCircle(point.X, point.Y, _radius3, circlePaint3);
             }
 
         }
 
 
+        /// <summary>
+        /// Paint he skBitmap within a given rectangle appling a filter and displaying the cursor if point is not empty
+        /// </summary>
+        /// <param name="canvas"></param>
+        /// <param name="rect"></param>
+        /// <param name="point"></param>
+        public void Paint(SKCanvas canvas, SKRect rect, SKPoint point)
+        {
+            canvas.Save();
+            SKMatrix matrix = Matrix;
+            canvas.Concat(ref matrix);
+            canvas.DrawBitmap(bitmap, rect);
+            if (!point.IsEmpty)
+            {
+                canvas.DrawCircle(point.X, point.Y, _radius1, circlePaint1);
+                canvas.DrawCircle(point.X, point.Y, _radius2, circlePaint2);
+                canvas.DrawCircle(point.X, point.Y, _radius3, circlePaint3);
+            }
+            canvas.Restore();
 
+
+        }
+
+        /// <summary>
+        /// Tests the the location is within the bitmap
+        /// to seen if the user pressed inside th bitmap.
+        /// </summary>
+        /// <param name="location"></param>
+        /// <returns></returns>
         public bool HitTest(SKPoint location)
         {
             // Invert the matrix
-
             if (Matrix.TryInvert(out SKMatrix inverseMatrix))
             {
                 // Transform the point using the inverted matrix
@@ -147,6 +186,13 @@ namespace Daltonpics.BitmapManipulation
             return false;
         }
 
+
+        /// <summary>
+        /// Handles the touche event
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="type"></param>
+        /// <param name="location"></param>
         public void ProcessTouchEvent(long id, SKTouchAction type, SKPoint location)
         {
             if (processingEvent) return;
@@ -183,6 +229,10 @@ namespace Daltonpics.BitmapManipulation
             processingEvent = false;
         }
 
+
+        /// <summary>
+        /// Manipulates the bitmpa within the canvas (Move, zoom, rotate, ...)
+        /// </summary>
         void Manipulate()
         {
             if (manipulating) return;
@@ -193,6 +243,7 @@ namespace Daltonpics.BitmapManipulation
             touchDictionary.Values.CopyTo(infos, 0);
 
 
+            // On finger touch
             if (infos.Length == 1)
             {
                 SKPoint prevPoint = infos[0].PreviousPoint;
@@ -201,6 +252,7 @@ namespace Daltonpics.BitmapManipulation
 
                 touchMatrix = TouchManager.OneFingerManipulate(prevPoint, newPoint, pivotPoint);
             }
+            // Two fingers touch
             else if (infos.Length >= 2)
             {
                 int pivotIndex = infos[0].NewPoint == infos[0].PreviousPoint ? 0 : 1;

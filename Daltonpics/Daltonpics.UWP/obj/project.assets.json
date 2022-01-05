@@ -521,6 +521,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.13",
           "SkiaSharp": "2.80.3",
           "SkiaSharp.Views.Forms": "2.80.3",
           "Xamarin.Essentials": "1.7.0",
@@ -1146,6 +1147,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.13",
           "SkiaSharp": "2.80.3",
           "SkiaSharp.Views.Forms": "2.80.3",
           "Xamarin.Essentials": "1.7.0",
@@ -1772,6 +1774,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.13",
           "SkiaSharp": "2.80.3",
           "SkiaSharp.Views.Forms": "2.80.3",
           "Xamarin.Essentials": "1.7.0",
@@ -2395,6 +2398,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.13",
           "SkiaSharp": "2.80.3",
           "SkiaSharp.Views.Forms": "2.80.3",
           "Xamarin.Essentials": "1.7.0",
@@ -3020,6 +3024,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.13",
           "SkiaSharp": "2.80.3",
           "SkiaSharp.Views.Forms": "2.80.3",
           "Xamarin.Essentials": "1.7.0",
@@ -3646,6 +3651,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.13",
           "SkiaSharp": "2.80.3",
           "SkiaSharp.Views.Forms": "2.80.3",
           "Xamarin.Essentials": "1.7.0",
@@ -4271,6 +4277,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.13",
           "SkiaSharp": "2.80.3",
           "SkiaSharp.Views.Forms": "2.80.3",
           "Xamarin.Essentials": "1.7.0",
@@ -4897,6 +4904,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.13",
           "SkiaSharp": "2.80.3",
           "SkiaSharp.Views.Forms": "2.80.3",
           "Xamarin.Essentials": "1.7.0",
@@ -9868,6 +9876,7 @@
     "UAP,Version=v10.0.16299": [
       "Daltonpics >= 1.0.0",
       "Microsoft.NETCore.UniversalWindowsPlatform >= 6.2.13",
+      "NETStandard.Library >= 2.0.3",
       "SkiaSharp >= 2.80.3",
       "SkiaSharp.Views.Forms >= 2.80.3",
       "Xamarin.Essentials >= 1.7.0",
@@ -9921,6 +9930,10 @@
           "Microsoft.NETCore.UniversalWindowsPlatform": {
             "target": "Package",
             "version": "[6.2.13, )"
+          },
+          "NETStandard.Library": {
+            "target": "Package",
+            "version": "[2.0.3, )"
           },
           "SkiaSharp": {
             "target": "Package",

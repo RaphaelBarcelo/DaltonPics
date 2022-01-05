@@ -41,4 +41,3 @@ D:\Users\barce\Documents\Projects\VisualStudio\Xamarin\Daltonpics\Daltonpics\Dal
 D:\Users\barce\Documents\Projects\VisualStudio\Xamarin\Daltonpics\Daltonpics\Daltonpics\obj\Debug\netstandard2.0\Daltonpics.dll
 D:\Users\barce\Documents\Projects\VisualStudio\Xamarin\Daltonpics\Daltonpics\Daltonpics\obj\Debug\netstandard2.0\ref\Daltonpics.dll
 D:\Users\barce\Documents\Projects\VisualStudio\Xamarin\Daltonpics\Daltonpics\Daltonpics\obj\Debug\netstandard2.0\Daltonpics.pdb
-D:\Users\barce\Documents\Projects\VisualStudio\Xamarin\Daltonpics\Daltonpics\Daltonpics\obj\Debug\netstandard2.0\Daltonpics.csproj.AssemblyReference.cache

@@ -36,7 +36,7 @@ application_config:
 	/* system_property_count */
 	.word	0
 	/* number_of_assemblies_in_apk */
-	.word	47
+	.word	43
 	/* bundled_assembly_name_width */
 	.word	62
 	/* android_package_name */
@@ -79,7 +79,7 @@ mono_aot_mode_name:
 	.section	.rodata.env.str.8,"aMS",@progbits,1
 	.type	.L.env.str.8, @object
 .L.env.str.8:
-	.asciz	"d1eb7d55-81fa-4003-aebe-0963cd8dc82b"
+	.asciz	"908eb653-4b90-43fe-ab12-12d3d42cfb39"
 	.size	.L.env.str.8, 37
 	.section	.rodata.env.str.9,"aMS",@progbits,1
 	.type	.L.env.str.9, @object
@@ -222,14 +222,6 @@ app_system_properties:
 .L.env.buf.42:
 	.zero	62
 .L.env.buf.43:
-	.zero	62
-.L.env.buf.44:
-	.zero	62
-.L.env.buf.45:
-	.zero	62
-.L.env.buf.46:
-	.zero	62
-.L.env.buf.47:
 	.zero	62
 	/* Bundled assemblies data */
 	.section	.data.bundled_assemblies,"aw",@progbits
@@ -882,64 +874,4 @@ bundled_assemblies:
 	.zero	4
 	.xword	.L.env.buf.43
 
-	/* apk_fd */
-	.word	-1
-	/* data_offset */
-	.word	0
-	/* data_size */
-	.word	0
-	/* data */
-	.zero	4
-	.xword	0
-	/* name_length */
-	.word	0
-	/* name */
-	.zero	4
-	.xword	.L.env.buf.44
-
-	/* apk_fd */
-	.word	-1
-	/* data_offset */
-	.word	0
-	/* data_size */
-	.word	0
-	/* data */
-	.zero	4
-	.xword	0
-	/* name_length */
-	.word	0
-	/* name */
-	.zero	4
-	.xword	.L.env.buf.45
-
-	/* apk_fd */
-	.word	-1
-	/* data_offset */
-	.word	0
-	/* data_size */
-	.word	0
-	/* data */
-	.zero	4
-	.xword	0
-	/* name_length */
-	.word	0
-	/* name */
-	.zero	4
-	.xword	.L.env.buf.46
-
-	/* apk_fd */
-	.word	-1
-	/* data_offset */
-	.word	0
-	/* data_size */
-	.word	0
-	/* data */
-	.zero	4
-	.xword	0
-	/* name_length */
-	.word	0
-	/* name */
-	.zero	4
-	.xword	.L.env.buf.47
-
-	.size	bundled_assemblies, 1880
+	.size	bundled_assemblies, 1720

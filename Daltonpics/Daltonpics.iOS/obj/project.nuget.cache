@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "NaJvcIqpfzxsIdEYLcxtWbAArZNoTGMAjupX8gWEyJBcAKezLC5rjz6w7JrtISP70u3WcSd5abnQhBVteinFFA==",
+  "dgSpecHash": "UHfDMFTk1J6pJovNoIlDZexykZlegM0UMQtDY1mobVEHfuPHQYcCzfmDM/6sCgnLd/2lXHhW9cO7J/Ksp5b2YQ==",
   "success": true,
   "projectFilePath": "D:\\Users\\barce\\Documents\\Projects\\VisualStudio\\Xamarin\\Daltonpics\\Daltonpics\\Daltonpics.iOS\\Daltonpics.iOS.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\barce\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\barce\\.nuget\\packages\\microsoft.netcore.universalwindowsplatform\\6.2.13\\microsoft.netcore.universalwindowsplatform.6.2.13.nupkg.sha512",
+    "C:\\Users\\barce\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
     "C:\\Users\\barce\\.nuget\\packages\\skiasharp\\2.80.3\\skiasharp.2.80.3.nupkg.sha512",
     "C:\\Users\\barce\\.nuget\\packages\\skiasharp.views\\2.80.3\\skiasharp.views.2.80.3.nupkg.sha512",
     "C:\\Users\\barce\\.nuget\\packages\\skiasharp.views.forms\\2.80.3\\skiasharp.views.forms.2.80.3.nupkg.sha512",

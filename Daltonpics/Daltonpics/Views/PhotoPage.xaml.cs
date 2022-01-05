@@ -23,10 +23,11 @@ namespace Daltonpics.Views
         private readonly List<long> touchIds = new List<long>();
         int color_coef_index = 0;
         static bool painting = false;
-        private readonly ColorFilters visionFilter = new ColorFilters();
+        private readonly ColorFilters visionFilter;
         private string PhotoPath;
         SKPoint cursorPpoint;
         bool bitmapMoving = false;
+        private float[] _activeFilter;
 
 
         public object TouchManager { get; private set; }
@@ -34,6 +35,12 @@ namespace Daltonpics.Views
         public PhotoPage()
         {
             InitializeComponent();
+
+
+            // Initialise active filter to normal vision
+            viewModel.ActiveFilter = (int) ColorBlindnessType.VISION_NORMALE;
+            visionFilter = new ColorFilters();
+            _activeFilter = visionFilter.ColorBlindnessFilters[ColorBlindnessType.VISION_NORMALE];
 
             // Set the SKCanvasView view to skWiew  (ContentView in the XAML)
             // and set the PaintSurface handler
@@ -65,15 +72,23 @@ namespace Daltonpics.Views
 
         #region Take and pick photos
 
-
+        /// <summary>
+        /// Borowses the gallery to pick a photo
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void Browse_gallery(object sender, EventArgs e)
         {
             (sender as ImageButton).IsEnabled = false;
             await PickPhotoAsync();
-
             (sender as ImageButton).IsEnabled = true;
         }
 
+        /// <summary>
+        /// Takes a picture with the camera
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void Take_picture(object sender, EventArgs e)
         {
             (sender as ImageButton).IsEnabled = false;
@@ -132,6 +147,11 @@ namespace Daltonpics.Views
             }
         }
 
+        /// <summary>
+        /// Loads a picture given a picture path
+        /// </summary>
+        /// <param name="photo"></param>
+        /// <returns></returns>
         async Task LoadPhotoAsync(FileResult photo)
         {
 
@@ -183,12 +203,12 @@ namespace Daltonpics.Views
                 if (visionFilter.ColorBlindnessFilters.ContainsKey((ColorBlindnessType)viewModel.ActiveFilter))
                 {
                     // Set the filter
-                    float[] filter = visionFilter.ColorBlindnessFilters[(ColorBlindnessType)viewModel.ActiveFilter];
+                    _activeFilter = visionFilter.ColorBlindnessFilters[(ColorBlindnessType)viewModel.ActiveFilter];
 
                     // Modify involved the color coef if slider in use 
                     if (viewModel.UseSlider)
                     {
-                        filter[color_coef_index] = ((float)viewModel.PercentColorPerception) / 100f;
+                        _activeFilter[color_coef_index] = ((float)viewModel.PercentColorPerception) / 100f;
                     }
 
                     // Display the bitmap
@@ -196,12 +216,19 @@ namespace Daltonpics.Views
                     // else reset point 
                     if (bitmapMoving)
                         cursorPpoint = SKPoint.Empty;
-          
-                    sKBitmap.Paint(canvas, filter, cursorPpoint);
-      
-                    // Get the resulting image from the view 
+
+
+                    
                     if (surfaceBitmap == null)
+                    {
+                        // Paints with no filters to get the right color on click
+                        sKBitmap.Paint(canvas);
+                        // Get the resulting image from the view to have a bitmap with no color filters
                         surfaceBitmap = SKBitmap.FromImage(paintSurface.Snapshot());
+                    }
+
+                    // Paint with filters an manipulation
+                    sKBitmap.Paint(canvas, _activeFilter, cursorPpoint);
                 }
 
             }
@@ -319,8 +346,8 @@ namespace Daltonpics.Views
             switch (args.ActionType)
             {
                 case SKTouchAction.Pressed:
-                    // On récupère la position
-
+                    
+                    // Get the pixel at the touched positioh
                     if (sKBitmap != null &&
                         surfaceBitmap != null &&
                         sKBitmap.HitTest(point) &&
@@ -335,7 +362,6 @@ namespace Daltonpics.Views
                             {
                                 if (pixel.Alpha != 0) // Si on est dans une zone avec couleura
                                 {
-
                                     // Base color
                                     viewModel.CalculateBaseColors(pixel);
 
@@ -352,7 +378,7 @@ namespace Daltonpics.Views
                         }
                         catch (Exception ex)
                         { Console.WriteLine(ex.Message); }
-                        // Les OS know that we want to receive aither events 
+                        // Let OS know that we want to receive aither events 
                         args.Handled = true;
                     }
 

@@ -55,18 +55,6 @@
     <AppxPackagedFile Include="C:\Users\barce\.nuget\packages\system.runtime.compilerservices.unsafe\4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll">
       <PackagePath>System.Runtime.CompilerServices.Unsafe.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\barce\.nuget\packages\touchtracking\1.1.0\lib\uap10.0\TouchTracking.UWP.dll">
-      <PackagePath>TouchTracking.UWP.dll</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\barce\.nuget\packages\touchtracking\1.1.0\lib\uap10.0\TouchTracking.dll">
-      <PackagePath>TouchTracking.dll</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\barce\.nuget\packages\touchtracking.forms\1.1.0\lib\uap10.0\TouchTracking.Forms.UWP.dll">
-      <PackagePath>TouchTracking.Forms.UWP.dll</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\barce\.nuget\packages\touchtracking.forms\1.1.0\lib\uap10.0\TouchTracking.Forms.dll">
-      <PackagePath>TouchTracking.Forms.dll</PackagePath>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\barce\.nuget\packages\win2d.uwp\1.20.0\runtimes\win10-x64\native\Microsoft.Graphics.Canvas.dll">
       <PackagePath>Microsoft.Graphics.Canvas.dll</PackagePath>
     </AppxPackagedFile>

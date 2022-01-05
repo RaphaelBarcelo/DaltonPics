@@ -18,10 +18,6 @@ D:\Users\barce\Documents\Projects\VisualStudio\Xamarin\Daltonpics\Daltonpics\Dal
 D:\Users\barce\Documents\Projects\VisualStudio\Xamarin\Daltonpics\Daltonpics\Daltonpics.UWP\bin\x64\Debug\SkiaSharp.Views.UWP.dll
 D:\Users\barce\Documents\Projects\VisualStudio\Xamarin\Daltonpics\Daltonpics\Daltonpics.UWP\bin\x64\Debug\SkiaSharp.Views.Forms.dll
 D:\Users\barce\Documents\Projects\VisualStudio\Xamarin\Daltonpics\Daltonpics\Daltonpics.UWP\bin\x64\Debug\System.Runtime.CompilerServices.Unsafe.dll
-D:\Users\barce\Documents\Projects\VisualStudio\Xamarin\Daltonpics\Daltonpics\Daltonpics.UWP\bin\x64\Debug\TouchTracking.UWP.dll
-D:\Users\barce\Documents\Projects\VisualStudio\Xamarin\Daltonpics\Daltonpics\Daltonpics.UWP\bin\x64\Debug\TouchTracking.dll
-D:\Users\barce\Documents\Projects\VisualStudio\Xamarin\Daltonpics\Daltonpics\Daltonpics.UWP\bin\x64\Debug\TouchTracking.Forms.UWP.dll
-D:\Users\barce\Documents\Projects\VisualStudio\Xamarin\Daltonpics\Daltonpics\Daltonpics.UWP\bin\x64\Debug\TouchTracking.Forms.dll
 D:\Users\barce\Documents\Projects\VisualStudio\Xamarin\Daltonpics\Daltonpics\Daltonpics.UWP\bin\x64\Debug\Microsoft.Graphics.Canvas.dll
 D:\Users\barce\Documents\Projects\VisualStudio\Xamarin\Daltonpics\Daltonpics\Daltonpics.UWP\bin\x64\Debug\Microsoft.Graphics.Canvas.winmd
 D:\Users\barce\Documents\Projects\VisualStudio\Xamarin\Daltonpics\Daltonpics\Daltonpics.UWP\bin\x64\Debug\Xamarin.Essentials.dll
